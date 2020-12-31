@@ -21,7 +21,6 @@ class WebViewExampleState extends State<WebViewExample> {
   Widget build(BuildContext context) {
     return WebView(
       initialUrl: 'http://120.26.160.203:8082/UserManagement',
-      // initialUrl: 'http://192.168.0.108:8080/UserManagement',
       javascriptMode: JavascriptMode.unrestricted,
     );
   }

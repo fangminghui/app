@@ -20,7 +20,6 @@ class WebViewExampleState extends State<WebViewExample> {
   @override
   Widget build(BuildContext context) {
     return WebView(
-      // initialUrl: 'http://47.94.23.125:8082/',
       initialUrl: 'http://192.168.0.108:8080/Videos',
       javascriptMode: JavascriptMode.unrestricted,
     );
