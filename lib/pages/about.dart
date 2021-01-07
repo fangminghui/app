@@ -25,7 +25,7 @@ class About extends StatelessWidget {
           },
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xfff3f3f3),
         toolbarHeight: ScreenUtil().setHeight(100),
         title: Text("关于本软件",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),

@@ -20,7 +20,7 @@ class WebViewExampleState extends State<WebViewExample> {
   @override
   Widget build(BuildContext context) {
     return WebView(
-      initialUrl: 'http://120.26.160.203:8082/Monitor',
+      initialUrl: 'http://182.61.34.157:8082/Monitor',
       javascriptMode: JavascriptMode.unrestricted,
     );
   }
@@ -51,7 +51,7 @@ class Monitor extends StatelessWidget {
           },
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xfff3f3f3),
         toolbarHeight: ScreenUtil().setHeight(100),
         title: Text("运行监测",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),

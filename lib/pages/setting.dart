@@ -28,7 +28,7 @@ class Setting extends StatelessWidget {
           },
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xfff3f3f3),
         toolbarHeight: ScreenUtil().setHeight(100),
         title: Text("设置",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),

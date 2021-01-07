@@ -20,7 +20,7 @@ class WebViewExampleState extends State<WebViewExample> {
   @override
   Widget build(BuildContext context) {
     return WebView(
-      initialUrl: 'http://120.26.160.203:8082/EquipmentManagement',
+      initialUrl: 'http://182.61.34.157:8082/EquipmentManagement',
       javascriptMode: JavascriptMode.unrestricted,
     );
   }
@@ -33,6 +33,7 @@ class EquipmentManagement extends StatelessWidget {
         designSize: Size(1080, 1920), allowFontScaling: true);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xfff3f3f3),
         elevation: 0,
         leading: Builder(
           builder: (BuildContext context) {
@@ -51,7 +52,6 @@ class EquipmentManagement extends StatelessWidget {
           },
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
         toolbarHeight: ScreenUtil().setHeight(100),
         title: Text("仪器设备",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),

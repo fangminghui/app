@@ -20,7 +20,7 @@ class WebViewExampleState extends State<WebViewExample> {
   @override
   Widget build(BuildContext context) {
     return WebView(
-      initialUrl: 'http://192.168.0.108:8080/Videos',
+      initialUrl: 'http://182.61.34.157:8082/Videos',
       javascriptMode: JavascriptMode.unrestricted,
     );
   }
@@ -51,7 +51,7 @@ class Videos extends StatelessWidget {
           },
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xfff3f3f3),
         toolbarHeight: ScreenUtil().setHeight(100),
         title: Text("视频监控",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),

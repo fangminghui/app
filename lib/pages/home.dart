@@ -21,7 +21,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xfff3f3f3),
         toolbarHeight: ScreenUtil().setHeight(100),
         title: Text("主页",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
