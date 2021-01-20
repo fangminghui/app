@@ -20,14 +20,14 @@ class WebViewExampleState extends State<WebViewExample> {
   @override
   Widget build(BuildContext context) {
     return WebView(
-      initialUrl: 'http://182.61.34.157:8082/Videos',
-      // initialUrl: ' http://192.168.0.108:8080/Videos',
+      initialUrl: 'http://182.61.34.157:8082/Monitor7',
+      // initialUrl: 'http://192.168.1.3:8080/Monitor7',
       javascriptMode: JavascriptMode.unrestricted,
     );
   }
 }
 
-class Videos extends StatelessWidget {
+class Monitor7 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context,
@@ -54,7 +54,7 @@ class Videos extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Color(0xfff3f3f3),
         toolbarHeight: ScreenUtil().setHeight(100),
-        title: Text("视频监控",
+        title: Text("流量统计",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
       ),
       body: WebViewExample(),
