@@ -13,6 +13,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:app/pages/setting.dart';
 
+import 'EquipmentType.dart';
+import 'SQL.dart';
+
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -44,13 +47,19 @@ class Home extends StatelessWidget {
                   MyButton(tag: "数据对比", assetName: "assets/svg/five.svg"),
                   MyButton(tag: "供水预测", assetName: "assets/svg/six.svg"),
                   MyButton(tag: "报警信息", assetName: "assets/svg/seven.svg"),
-                  MyButton(tag: "仪器设备", assetName: "assets/svg/eight.svg"),
+                  MyButton(tag: "警报管理", assetName: "assets/svg/eight.svg"),
                 ],
               ),
               Row(
                 children: [
-                  MyButton(tag: "警报管理", assetName: "assets/svg/nine.svg"),
-                  MyButton(tag: "用户管理", assetName: "assets/svg/ten.svg"),
+                  MyButton(tag: "仪器设备", assetName: "assets/svg/nine.svg"),
+                  MyButton(tag: "设备类型", assetName: "assets/svg/ten.svg"),
+                  MyButton(tag: "用户管理", assetName: "assets/svg/eleven.svg"),
+                  MyButton(tag: "数据库字段", assetName: "assets/svg/twelve.svg"),
+                ],
+              ),
+              Row(
+                children: [
                   MyButton(tag: "设置", assetName: "assets/svg/setting.svg"),
                 ],
               ),
@@ -137,19 +146,29 @@ class MyButton extends StatelessWidget {
                   page = WarningMessage();
                 }
                 break;
-              case '仪器设备':
-                {
-                  page = EquipmentManagement();
-                }
-                break;
               case '警报管理':
                 {
                   page = WarningManagement();
                 }
                 break;
+              case '仪器设备':
+                {
+                  page = EquipmentManagement();
+                }
+                break;
+              case '设备类型':
+                {
+                  page = EquipmentType();
+                }
+                break;
               case '用户管理':
                 {
                   page = UserManagement();
+                }
+                break;
+              case '数据库字段':
+                {
+                  page = SQL();
                 }
                 break;
               case '设置':
