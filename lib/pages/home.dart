@@ -1,4 +1,5 @@
 import 'package:app/pages/Monitor.dart';
+import 'package:app/pages/Overview.dart';
 import 'package:app/pages/GIS.dart';
 import 'package:app/pages/Videos.dart';
 import 'package:app/pages/DataReview.dart';
@@ -12,7 +13,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:app/pages/setting.dart';
-
 import 'EquipmentType.dart';
 import 'SQL.dart';
 
@@ -34,6 +34,11 @@ class Home extends StatelessWidget {
           Positioned(top: 0, child: MyBackground()),
           Column(
             children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.width / 4,
+                child: Overview(),
+              ),
               Row(
                 children: [
                   MyButton(tag: "运行监测", assetName: "assets/svg/one.svg"),
@@ -85,6 +90,15 @@ class MyBackground extends StatelessWidget {
     );
   }
 }
+// class MyBackground extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//         height: MediaQuery.of(context).size.height,
+//         width: MediaQuery.of(context).size.width,
+//         color: new Color(0xfff3f3f3));
+//   }
+// }
 
 class MyButton extends StatelessWidget {
   MyButton({Key key, this.tag, this.assetName}) : super(key: key);

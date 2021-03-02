@@ -88,7 +88,7 @@ class _MyFormContentState extends State<MyFormContent> {
   }
 
   void _login() async {
-    var url = 'http://182.61.34.157:8080/api/user/login/status?';
+    var url = 'http://10.0.2.13:8080/api/user/login/status?';
     var para =
         "loginName=${usernameController.text}&password=${passwordController.text}";
     var response = await http.get(url + para);

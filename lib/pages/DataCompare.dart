@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_screenutil/screenutil.dart';
+import 'package:webview_flutter/platform_interface.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,26 @@ class WebViewExampleState extends State<WebViewExample> {
   @override
   Widget build(BuildContext context) {
     return WebView(
-      initialUrl: 'http://182.61.34.157:8082/DataCompare',
+      onWebResourceError: (
+        WebResourceError webviewerrr,
+      ) {
+        showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('提示'),
+                content: Text('网络错误，请检查后重试'),
+                actions: <Widget>[
+                  FlatButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: Text('确认'),
+                  ),
+                ],
+              );
+            });
+      },
+      initialUrl: 'http://10.0.2.13:8082/DataCompare',
       javascriptMode: JavascriptMode.unrestricted,
     );
   }
