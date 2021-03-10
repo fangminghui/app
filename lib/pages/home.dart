@@ -14,6 +14,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:app/pages/setting.dart';
 import 'EquipmentType.dart';
+import 'GISManagement.dart';
 import 'SQL.dart';
 
 class Home extends StatelessWidget {
@@ -65,6 +66,7 @@ class Home extends StatelessWidget {
               ),
               Row(
                 children: [
+                  MyButton(tag: "管网管理", assetName: "assets/svg/thirteenth.svg"),
                   MyButton(tag: "设置", assetName: "assets/svg/setting.svg"),
                 ],
               ),
@@ -183,6 +185,11 @@ class MyButton extends StatelessWidget {
               case '数据库字段':
                 {
                   page = SQL();
+                }
+                break;
+              case '管网管理':
+                {
+                  page = GISManagement();
                 }
                 break;
               case '设置':
