@@ -1,3 +1,4 @@
+import 'package:app/pages/Meter.dart';
 import 'package:app/pages/Monitor.dart';
 import 'package:app/pages/Overview.dart';
 import 'package:app/pages/GIS.dart';
@@ -67,6 +68,7 @@ class Home extends StatelessWidget {
               Row(
                 children: [
                   MyButton(tag: "管网管理", assetName: "assets/svg/thirteenth.svg"),
+                  MyButton(tag: "远程抄表", assetName: "assets/svg/fourteenth.svg"),
                   MyButton(tag: "设置", assetName: "assets/svg/setting.svg"),
                 ],
               ),
@@ -190,6 +192,11 @@ class MyButton extends StatelessWidget {
               case '管网管理':
                 {
                   page = GISManagement();
+                }
+                break;
+              case '远程抄表':
+                {
+                  page = Meter();
                 }
                 break;
               case '设置':
