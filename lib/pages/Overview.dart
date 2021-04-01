@@ -21,9 +21,15 @@ class _OverviewState extends State<Overview> {
       response = await Dio().get(url);
       var responseData = jsonDecode(response.toString());
       setState(() {
-        data[2]['value'] = responseData['data'][2]['value'];
-        data[3]['value'] = responseData['data'][3]['value'];
-        data[4]['value'] = responseData['data'][4]['value'];
+        if (data[2]['value'] > 0) {
+          data[2]['value'] = responseData['data'][2]['value'];
+        }
+        if (data[3]['value'] > 0) {
+          data[3]['value'] = responseData['data'][3]['value'];
+        }
+        if (data[4]['value'] > 0) {
+          data[4]['value'] = responseData['data'][4]['value'];
+        }
       });
     } catch (e) {
       setState(() {
@@ -85,10 +91,10 @@ class _OverviewState extends State<Overview> {
                     Text(data[2]['name'],
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 17,
+                            fontSize: 15.5,
                             color: new Color(0xff444444))),
                     Text(data[2]['value'] + '(kw.h)',
-                        style: TextStyle(fontSize: 17)),
+                        style: TextStyle(fontSize: 15.5)),
                   ],
                 ),
                 Column(
@@ -96,10 +102,10 @@ class _OverviewState extends State<Overview> {
                     Text(data[3]['name'],
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 17,
+                            fontSize: 15.5,
                             color: new Color(0xff444444))),
                     Text(data[3]['value'] + '(m³)',
-                        style: TextStyle(fontSize: 17)),
+                        style: TextStyle(fontSize: 15.5)),
                   ],
                 ),
                 Column(
@@ -107,10 +113,10 @@ class _OverviewState extends State<Overview> {
                     Text(data[4]['name'],
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 17,
+                            fontSize: 15.5,
                             color: new Color(0xff444444))),
                     Text(data[4]['value'] + '(kw.h)',
-                        style: TextStyle(fontSize: 17)),
+                        style: TextStyle(fontSize: 15.5)),
                   ],
                 ),
               ],
