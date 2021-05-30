@@ -21,17 +21,18 @@ class _OverviewState extends State<Overview> {
       response = await Dio().get(url);
       var responseData = jsonDecode(response.toString());
       setState(() {
-        if (data[0]['value'] > 0) {
+        if (double.parse(responseData['data'][0]['value']) > 0) {
           data[0]['value'] = responseData['data'][0]['value'];
         }
-        if (data[1]['value'] > 0) {
+        if (double.parse(responseData['data'][1]['value']) > 0) {
           data[1]['value'] = responseData['data'][1]['value'];
         }
-        if (data[2]['value'] > 0) {
+        if (double.parse(responseData['data'][2]['value']) > 0) {
           data[2]['value'] = responseData['data'][2]['value'];
         }
       });
     } catch (e) {
+      print(e);
       setState(() {
         data = [
           {'name': '今日耗电总量', 'value': '无数据'},
