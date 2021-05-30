@@ -21,21 +21,19 @@ class _OverviewState extends State<Overview> {
       response = await Dio().get(url);
       var responseData = jsonDecode(response.toString());
       setState(() {
+        if (data[0]['value'] > 0) {
+          data[0]['value'] = responseData['data'][0]['value'];
+        }
+        if (data[1]['value'] > 0) {
+          data[1]['value'] = responseData['data'][1]['value'];
+        }
         if (data[2]['value'] > 0) {
           data[2]['value'] = responseData['data'][2]['value'];
-        }
-        if (data[3]['value'] > 0) {
-          data[3]['value'] = responseData['data'][3]['value'];
-        }
-        if (data[4]['value'] > 0) {
-          data[4]['value'] = responseData['data'][4]['value'];
         }
       });
     } catch (e) {
       setState(() {
         data = [
-          {'name': '无数据', 'value': '无数据'},
-          {'name': '无数据', 'value': '无数据'},
           {'name': '今日耗电总量', 'value': '无数据'},
           {'name': '今日总出厂流量', 'value': '无数据'},
           {'name': '千吨水耗电量', 'value': '无数据'}
@@ -49,8 +47,6 @@ class _OverviewState extends State<Overview> {
     super.initState();
     setState(() {
       data = [
-        {'name': '无数据', 'value': '无数据'},
-        {'name': '无数据', 'value': '无数据'},
         {'name': '今日耗电总量', 'value': '无数据'},
         {'name': '今日总出厂流量', 'value': '无数据'},
         {'name': '千吨水耗电量', 'value': '无数据'}
@@ -88,34 +84,34 @@ class _OverviewState extends State<Overview> {
               children: [
                 Column(
                   children: [
+                    Text(data[0]['name'],
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15.5,
+                            color: new Color(0xff444444))),
+                    Text(data[0]['value'] + '(kw.h)',
+                        style: TextStyle(fontSize: 15.5)),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text(data[1]['name'],
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15.5,
+                            color: new Color(0xff444444))),
+                    Text(data[1]['value'] + '(m³)',
+                        style: TextStyle(fontSize: 15.5)),
+                  ],
+                ),
+                Column(
+                  children: [
                     Text(data[2]['name'],
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15.5,
                             color: new Color(0xff444444))),
                     Text(data[2]['value'] + '(kw.h)',
-                        style: TextStyle(fontSize: 15.5)),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(data[3]['name'],
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15.5,
-                            color: new Color(0xff444444))),
-                    Text(data[3]['value'] + '(m³)',
-                        style: TextStyle(fontSize: 15.5)),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(data[4]['name'],
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15.5,
-                            color: new Color(0xff444444))),
-                    Text(data[4]['value'] + '(kw.h)',
                         style: TextStyle(fontSize: 15.5)),
                   ],
                 ),
