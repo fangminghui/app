@@ -54,20 +54,11 @@ class Home extends StatelessWidget {
                   MyButton(tag: "数据对比", assetName: "assets/svg/five.svg"),
                   MyButton(tag: "供水预测", assetName: "assets/svg/six.svg"),
                   MyButton(tag: "报警信息", assetName: "assets/svg/seven.svg"),
-                  MyButton(tag: "警报管理", assetName: "assets/svg/eight.svg"),
-                ],
-              ),
-              Row(
-                children: [
-                  MyButton(tag: "仪器设备", assetName: "assets/svg/nine.svg"),
-                  MyButton(tag: "设备类型", assetName: "assets/svg/ten.svg"),
-                  MyButton(tag: "用户管理", assetName: "assets/svg/eleven.svg"),
-                  MyButton(tag: "数据库字段", assetName: "assets/svg/twelve.svg"),
-                ],
-              ),
-              Row(
-                children: [
                   MyButton(tag: "管网管理", assetName: "assets/svg/thirteenth.svg"),
+                ],
+              ),
+              Row(
+                children: [
                   MyButton(tag: "远程抄表", assetName: "assets/svg/fourteenth.svg"),
                   MyButton(tag: "设置", assetName: "assets/svg/setting.svg"),
                 ],
