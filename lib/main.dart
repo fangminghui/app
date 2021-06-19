@@ -1,4 +1,5 @@
 import 'package:app/pages/home.dart';
+import 'package:app/pages/homeB.dart';
 import 'package:flutter/material.dart';
 import 'package:app/pages/login.dart';
 import 'package:minimize_app/minimize_app.dart';
@@ -40,7 +41,11 @@ class _IsLoginState extends State<IsLogin> {
   checkIsLogin() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (prefs.getString('username') != null) {
-      setState(() => isLogin = 1);
+      if (prefs.getString('root') == '1') {
+        setState(() => isLogin = 1);
+      } else {
+        setState(() => isLogin = 2);
+      }
     }
   }
 
@@ -48,6 +53,8 @@ class _IsLoginState extends State<IsLogin> {
   Widget build(BuildContext context) {
     if (isLogin == 1) {
       return Home();
+    } else if (isLogin == 2) {
+      return HomeB();
     } else {
       return Login();
     }

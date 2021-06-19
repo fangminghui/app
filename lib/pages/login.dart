@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart' as http;
 import 'package:app/pages/home.dart';
+import 'package:app/pages/homeB.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:app/components/loadingDialog.dart';
 
@@ -81,10 +82,11 @@ class _MyFormContentState extends State<MyFormContent> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void _saveUser(username, password) async {
+  void _saveUser(username, password, root) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('username', username);
     prefs.setString('password', password);
+    prefs.setString('root', root);
   }
 
   void _login() async {
@@ -95,10 +97,17 @@ class _MyFormContentState extends State<MyFormContent> {
     Map<String, dynamic> responseJson =
         json.decode(utf8.decode(response.bodyBytes));
     if (responseJson['message'] == '验证成功') {
-      _saveUser(usernameController.text, passwordController.text);
-      Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => Home()),
-          (Route<dynamic> route) => false);
+      if (responseJson['data']['username'] == '管理员') {
+        _saveUser(usernameController.text, passwordController.text, '1');
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => Home()),
+            (Route<dynamic> route) => false);
+      } else {
+        _saveUser(usernameController.text, passwordController.text, '0');
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => HomeB()),
+            (Route<dynamic> route) => false);
+      }
     } else {
       Navigator.pop(context);
       return showDialog(
